@@ -14,7 +14,7 @@ body {
 .info img {
   width: 100%;
 }
-.info .more-info {
+.info .info__more-info {
   font-family: fantasy, cursive;
 }
 
@@ -28,12 +28,14 @@ body {
   width: 500px;
   margin: 0 auto 0;
 }
-.task {
+.main__task {
   width: 56%;
   display: inline-block;
   flex-grow: 1;
 }
-.label-task {
+.main__label-task,
+.incompleted-tasks__delete-btn,
+.completed-tasks__delete-btn {
   display: flex;
 }
 ul {
@@ -71,7 +73,8 @@ label[for="new-task"] {
   margin: 0;
   text-transform: uppercase;
 }
-.task {
+.main__task,
+.incompleted-tasks__task {
   margin: 0;
   font-size: 18px;
   line-height: 18px;
@@ -83,7 +86,7 @@ label[for="new-task"] {
   font-family: Lato, sans-serif;
   color: #888;
 }
-.task:focus {
+.main__task:focus {
   color: #333;
 }
 
@@ -119,15 +122,25 @@ li > label {
   font-size: 18px;
   width: 226px;
 }
-li > .task {
+li > .main__task,
+.incomplete-tasks__task,
+.complete-tasks__task {
   width: 226px;
 }
-.delete-btn img {
+.main__delete-btn img,
+.incompleted-tasks__delete-btn,
+.completed-tasks__delete-btn {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
-.delete-btn img:hover {
+.main__delete-btn img:hover {
+  transform: rotateZ(0);
+}
+.incompleted-tasks__delete-btn:hover {
+  transform: rotateZ(0);
+}
+.completed-tasks__delete-btn:hover {
   transform: rotateZ(0);
 }
 
@@ -142,11 +155,11 @@ ul li input[type=text] {
   display: none;
 }
 
-.edit-mode input[type=text] {
+.incompleted-tasks__edit-mode input[type=text] {
   display: inline-block;
   width: 224px;
 }
 
-.edit-mode label {
+.incompleted-tasks__edit-mode label {
   display: none;
 }
